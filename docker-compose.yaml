@@ -1,0 +1,15 @@
+---
+version: "3"
+services:
+  announce-events:
+    container_name: announce_events
+    build: .
+    volumes:
+      - "./data:/app/data:rw"
+    environment:
+      - UID=1000
+      - GID=1000
+      - TOKEN=
+    stdin_open: true
+    tty: true
+    restart: unless-stopped
