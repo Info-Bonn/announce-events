@@ -14,8 +14,7 @@ This bot is based on a template by nonchris
 https://github.com/nonchris/discord-bot
 """
 
-intents = discord.Intents.all()
-bot = commands.Bot(command_prefix=PREFIX, intents=intents)
+bot = commands.Bot(command_prefix=PREFIX)
 
 
 # login message
@@ -30,10 +29,8 @@ async def on_ready():
 
     print(f'Bot is connected to the following guilds:')
     print()
-    member_count = 0
     for g in bot.guilds:
-        print(f"{g.name} - {g.id} - Members: {g.member_count}")
-        member_count += g.member_count
+        print(f"{g.name} - {g.id}")
     print()
     await bot.change_presence(
         activity=discord.Activity(type=discord.ActivityType.watching, name=f"{PREFIX}help"))
